@@ -1,0 +1,61 @@
+package driving;
+import java.util.Scanner;
+
+class Drive{
+	private double miles;
+	private double costG;
+	private double avgMiles;
+	private int parkingFees;
+	private int tolls;
+	private double costPerDay;
+	
+	public Drive(){
+		
+	}
+	
+	
+	public void acceptRecord() {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("miles:");
+		miles=sc.nextDouble();
+		System.out.print("costG:");
+		costG=sc.nextDouble();
+		System.out.print("avgMiles:");
+		avgMiles=sc.nextDouble();
+		System.out.print("parkingFees:");
+		parkingFees=sc.nextInt();
+		System.out.print("tolls:");
+		tolls=sc.nextInt();
+	}
+	
+	public void displayRecords() {
+		double fuelCost=((miles/avgMiles)*costG);
+	    costPerDay= fuelCost+parkingFees+tolls;
+		System.out.printf("CostPerDay:%.2f",costPerDay);
+		
+	}
+	
+	public void afterPooling(){
+		Scanner sc=new Scanner(System.in);
+		System.out.println();
+		System.out.print("Enter number of shared person:");
+		int sharedPerson=sc.nextInt();
+		
+		double costPerPerson=(costPerDay/sharedPerson);
+		System.out.printf("CostPerPerson:%.2f\n",costPerPerson);
+		
+		double savedMoney=costPerDay-costPerPerson;
+		System.out.printf("savedMoney:%.2f",savedMoney);
+	}
+}
+
+public class DriveMain{
+	
+	public static void main(String[] args) {
+		Drive d1=new Drive();
+		d1.acceptRecord();
+		d1.displayRecords();
+		d1.afterPooling();
+		
+	}
+}
