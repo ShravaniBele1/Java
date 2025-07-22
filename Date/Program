@@ -1,0 +1,30 @@
+package date;
+
+public class Demo8 {
+
+	public static void main(String[] args) {
+		Date dt1 = new Date(1, 1, 2020); 
+		Date dt2 = new Date(1, 1, 2020); 
+		
+		boolean flag = (dt1 == dt2); 
+		System.out.println("Res = " + flag); 
+		// We are comparing the references 
+		// references cannot be same 
+		
+		flag = dt1.equals(dt2); 
+		System.out.println("Res = " + flag);
+		// if we don't override equals method 
+		// object class equals method gets called and it also compares references 
+		
+		flag = dt1.equals(null); 
+		System.out.println("Res = " + flag);
+		
+		flag = dt1.equals(dt1); 
+		System.out.println("Res = " + flag);
+		
+		flag = dt1.equals("22-07-2025"); 
+		System.out.println("Res = " + flag);
+
+	}
+
+}
