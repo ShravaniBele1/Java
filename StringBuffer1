@@ -1,0 +1,52 @@
+package abc;
+
+public class StringBuffer1{
+
+	public static void main1(String[] args)
+	{
+		StringBuffer sb=new StringBuffer();
+		sb.append("Shravani");
+		sb.append(45);
+		sb.append('P');
+		sb.append(85.20);
+		String str=sb.toString();
+		System.out.println(sb);
+	}
+	
+	public static void main2(String[] args)
+	{
+		StringBuffer sb=new StringBuffer();
+		System.out.printf("Capacity: %d ,Length: %d\n",sb.capacity(),sb.length());//16,0
+		sb.append("0123456789");
+		System.out.printf("Capacity: %d ,Length: %d\n",sb.capacity(),sb.length());//16,10
+		sb.append("abcde");
+		System.out.printf("Capacity: %d ,Length: %d\n",sb.capacity(),sb.length());//16,15
+		sb.append("ghidfh");
+		System.out.printf("Capacity: %d ,Length: %d",sb.capacity(),sb.length());//34,21
+	}
+	
+	public static void main3(String[] args)
+	{
+		//stringBuffer (since java 7.0) is thread-safe.
+		//Internally uses synchronization objects,which slow down the execution.
+		//StringBuilder (since java 5.0) is not thread-safe;
+		//Not using synchronization objects,due to which it is faster than stringBuffer.
+		StringBuffer sb=new StringBuffer("Sunbeam");
+		sb.reverse();
+		String str=sb.toString();
+		System.out.println(str);
+	}
+	
+	public static void main(String[] args) 
+	{
+//		String s1 = "Sunbeam"; 
+//		String s2 = "Sunbeam"; 
+//		System.out.println("Equals : "+s1.equals(s2));
+		
+		String s1="Sunbeam";
+		StringBuffer sb1=new StringBuffer("Sunbeam");
+		System.out.println(s1.equals(sb1.toString()));
+	}
+	
+
+}
