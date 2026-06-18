@@ -1,0 +1,47 @@
+package java1;
+import java.util.*;
+
+public class DigitSumChampion {
+
+	public static int digitSum(int num) {
+		int sum = 0;
+		
+		while(num > 0) {
+			sum += num % 10;
+			num /= 10;
+		}
+		return sum;
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter size of array:");
+		int n = sc.nextInt();
+		
+		int arr[] = new int[n];
+		
+		System.out.print("Enter ele of arrays:");
+		for(int i =0 ;i<n ;i++) {
+			arr[i] = sc.nextInt();
+		}
+		
+		int highestEle = arr[0];
+		int maxDigitSum = digitSum(arr [0]);
+		
+		for(int i =1;i<n ;i++){
+			
+			int currentDigitSum = digitSum(arr[i]);
+			
+			if(currentDigitSum > maxDigitSum) {
+				maxDigitSum = currentDigitSum;
+				highestEle = arr[i];
+			}
+			else if(currentDigitSum == maxDigitSum && arr[i] > highestEle) {
+				highestEle = arr[i];
+			}
+		}
+		
+		System.out.println("Answer :"+highestEle);
+	}
+
+}
