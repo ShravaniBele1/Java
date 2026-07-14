@@ -1,0 +1,39 @@
+package java1;
+
+public class StrongNumber {
+
+	public static int Digit(int num) {
+		int sum = 0 ;
+		
+		while(num > 0) {
+			
+			int mod = num % 10 ;
+			sum += Fact(mod) ;
+			num = num / 10 ;
+		}
+		
+		return sum ;
+	}
+	public static int Fact(int digit) {
+		
+		int fact = 1;
+		
+		for(int i = digit ;i>=1 ;i--) {
+			fact = fact * i ; 
+		}
+		
+		return fact ;
+	}
+	public static void main(String[] args) {
+		
+		int num = 145 ;
+	    
+		if(Digit(num) == num) {
+			System.out.println("Strong Number");
+		}else {
+			System.out.println("Not Strong Number");
+		}
+		
+	}
+
+}
