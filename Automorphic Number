@@ -1,0 +1,46 @@
+public class AutomorphicNumber {
+	
+	public static void Automorphic(int num) {
+		
+		int count = 0 ;
+		int original = num ;
+		while(num > 0 ) {
+			 count++ ;
+			 num = num/10 ;
+		 }
+		
+		int square = original * original;
+		boolean isAutomorphic = true ;
+		int num1 = original ;
+		
+		for(int i = 0 ;i< count ;i++){
+			
+			int digit = square % 10 ;
+			int mod = num1 % 10 ;
+			
+			if(digit != mod) {
+				isAutomorphic = false;
+				break ;
+			}	
+			
+			square = square / 10;
+			num1 = num1 / 10 ;
+			
+		}
+		
+		if(isAutomorphic) {
+			System.out.println("Automorphic");
+		}else {
+			System.out.println("Not Automorphic");
+		}
+	
+	}
+	public static void main(String[] args) {
+		
+		int num = 15;
+		
+		Automorphic(num);
+	}
+
+}
+
